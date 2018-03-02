@@ -10,8 +10,8 @@ public class Version24 extends VersionDefination {
     }
 
     @Override
-    OpenRtb.BidRequest.Builder downgradeRequest(OpenRtb.BidRequest.Builder requestBuilder) {
-        return null;
+    boolean downgradeRequest(OpenRtb.BidRequest.Builder requestBuilder) {
+        return false;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Version24 extends VersionDefination {
     }
 
     @Override
-    OpenRtb.BidResponse.Builder downgradeResponse(OpenRtb.BidResponse.Builder responseBuilder) {
-        return null;
+    boolean downgradeResponse(OpenRtb.BidResponse.Builder responseBuilder) {
+        return false;
     }
 }
