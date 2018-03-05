@@ -39,11 +39,11 @@ public class VersionTool {
         return OpenRtbApiVersion.VER_2_3;
     }
 
-    public boolean ensureRequestCompatible(OpenRtb.BidRequest.Builder request, OpenRtbApiVersion targetVersion) {
+    public boolean ensureRequestCompatible(OpenRtb.BidRequest.Builder request, OpenRtbApiVersion targetVersion) throws DowngradeError {
         return ensureRequestCompatible(request, targetVersion, OpenRtbApiVersion.VER_2_5);
     }
 
-    public boolean ensureRequestCompatible(OpenRtb.BidRequest.Builder request, OpenRtbApiVersion targetVersion, OpenRtbApiVersion currentVersion) {
+    public boolean ensureRequestCompatible(OpenRtb.BidRequest.Builder request, OpenRtbApiVersion targetVersion, OpenRtbApiVersion currentVersion) throws DowngradeError {
         if ( targetVersion.isLowerThan(currentVersion) ) {
             boolean changed = getVersionDefination(currentVersion).downgradeRequest(request);
             OpenRtbApiVersion nextVersion = currentVersion.nextLowerVersion();
@@ -52,11 +52,11 @@ public class VersionTool {
         return false;
     }
 
-    public boolean ensureResponseCompatile(OpenRtb.BidResponse.Builder response, OpenRtbApiVersion targetVersion) {
+    public boolean ensureResponseCompatile(OpenRtb.BidResponse.Builder response, OpenRtbApiVersion targetVersion) throws DowngradeError {
         return ensureResponseCompatile(response, targetVersion, OpenRtbApiVersion.VER_2_5);
     }
 
-    public boolean ensureResponseCompatile(OpenRtb.BidResponse.Builder response, OpenRtbApiVersion targetVersion, OpenRtbApiVersion currentVersion) {
+    public boolean ensureResponseCompatile(OpenRtb.BidResponse.Builder response, OpenRtbApiVersion targetVersion, OpenRtbApiVersion currentVersion) throws DowngradeError {
         if ( targetVersion.isLowerThan(currentVersion) ) {
             boolean changed = getVersionDefination(currentVersion).downgradeResponse(response);
             OpenRtbApiVersion nextVersion = currentVersion.nextLowerVersion();

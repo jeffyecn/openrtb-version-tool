@@ -187,7 +187,7 @@ public class Version25 extends VersionDefination {
     }
 
     @Override
-    public boolean downgradeRequest(OpenRtb.BidRequest.Builder builder) {
+    public boolean downgradeRequest(OpenRtb.BidRequest.Builder builder) throws DowngradeError {
         boolean changed = false;
         if (builder.getBseatCount() > 0) {
             builder.clearBseat();
@@ -299,7 +299,7 @@ public class Version25 extends VersionDefination {
     }
 
     @Override
-    public boolean downgradeResponse(OpenRtb.BidResponse.Builder builder) {
+    public boolean downgradeResponse(OpenRtb.BidResponse.Builder builder) throws DowngradeError {
         boolean changed = false;
         if ( builder.getSeatbidCount() > 0 ) {
             for(OpenRtb.BidResponse.SeatBid.Builder seatBidBuilder : builder.getSeatbidBuilderList() ) {
