@@ -8,7 +8,7 @@ import java.util.List;
 public class Version25 extends VersionDefination {
 
     @Override
-    boolean matchRequest(OpenRtb.BidRequestOrBuilder request) {
+    public boolean matchRequest(OpenRtb.BidRequestOrBuilder request) {
         if (request.getBseatCount() > 0) {
             return true;
         }
@@ -187,7 +187,7 @@ public class Version25 extends VersionDefination {
     }
 
     @Override
-    boolean downgradeRequest(OpenRtb.BidRequest.Builder builder) {
+    public boolean downgradeRequest(OpenRtb.BidRequest.Builder builder) {
         boolean changed = false;
         if (builder.getBseatCount() > 0) {
             builder.clearBseat();
@@ -257,7 +257,7 @@ public class Version25 extends VersionDefination {
     }
 
     @Override
-    boolean matchResponse(OpenRtb.BidResponseOrBuilder response) {
+    public boolean matchResponse(OpenRtb.BidResponseOrBuilder response) {
         if ( response.getSeatbidCount() > 0 ) {
             for(OpenRtb.BidResponse.SeatBid seatBid : response.getSeatbidList() ) {
                 if ( seatBid.getBidCount() > 0 ) {
@@ -299,7 +299,7 @@ public class Version25 extends VersionDefination {
     }
 
     @Override
-    boolean downgradeResponse(OpenRtb.BidResponse.Builder builder) {
+    public boolean downgradeResponse(OpenRtb.BidResponse.Builder builder) {
         boolean changed = false;
         if ( builder.getSeatbidCount() > 0 ) {
             for(OpenRtb.BidResponse.SeatBid.Builder seatBidBuilder : builder.getSeatbidBuilderList() ) {

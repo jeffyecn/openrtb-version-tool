@@ -4,11 +4,11 @@ import com.google.openrtb.OpenRtb;
 
 abstract public class VersionDefination {
 
-    abstract boolean matchRequest(OpenRtb.BidRequestOrBuilder request);
+    abstract public boolean matchRequest(OpenRtb.BidRequestOrBuilder request);
 
-    abstract boolean downgradeRequest(OpenRtb.BidRequest.Builder requestBuilder);
+    abstract public boolean downgradeRequest(OpenRtb.BidRequest.Builder requestBuilder);
 
-    abstract boolean matchResponse(OpenRtb.BidResponseOrBuilder response);
+    abstract public boolean matchResponse(OpenRtb.BidResponseOrBuilder response);
 
-    abstract boolean downgradeResponse(OpenRtb.BidResponse.Builder responseBuilder);
+    abstract public boolean downgradeResponse(OpenRtb.BidResponse.Builder responseBuilder);
 }
