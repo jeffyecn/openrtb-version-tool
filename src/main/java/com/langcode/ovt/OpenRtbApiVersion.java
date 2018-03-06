@@ -30,4 +30,8 @@ public enum OpenRtbApiVersion {
                 return null;
         }
     }
+
+    public int getValue() {
+        return value;
+    }
 }
