@@ -12,6 +12,18 @@ public enum OpenRtbApiVersion {
         this.value = value;
     }
 
+    public static OpenRtbApiVersion ofValue(int value) {
+        switch(value) {
+            case 25:
+                return VER_2_5;
+            case 24:
+                return VER_2_4;
+            case 23:
+                return VER_2_3;
+        }
+        return null;
+    }
+
     public boolean isLowerThan(OpenRtbApiVersion other) {
         return value < other.value;
     }
