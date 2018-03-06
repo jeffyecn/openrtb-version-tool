@@ -4,7 +4,6 @@
   "imp": [
     {
       "id": "1", "bidfloor": 0.03,
-      "clickbrowser": 1,
       "banner": {
         "h": 250, "w": 300, "pos": 0
       }

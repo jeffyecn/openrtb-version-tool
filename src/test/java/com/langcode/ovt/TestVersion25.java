@@ -30,7 +30,7 @@ public class TestVersion25 {
     }
 
     @Test
-    public void testDowngradeReq() {
+    public void testDowngradeReq() throws DowngradeError {
         RtbLoader loader = new RtbLoader("req25.json");
 
         OpenRtb.BidRequest request = loader.loadAsRequest();
@@ -67,7 +67,7 @@ public class TestVersion25 {
     }
 
     @Test
-    public void testDowngradeResp() {
+    public void testDowngradeResp() throws DowngradeError {
         RtbLoader loader = new RtbLoader("resp25.json");
 
         OpenRtb.BidResponse response = loader.loadAsResponse();
